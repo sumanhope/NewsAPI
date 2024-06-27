@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../../utils/helper/helper_function.dart';
 
 class WelcomeAndDate extends StatelessWidget {
