@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:newsapi/screens/favorites.dart';
@@ -9,7 +10,8 @@ import 'utils/constants/colors.dart';
 import 'utils/helper/helper_function.dart';
 import 'utils/theme/theme.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'News-Test',
+      title: 'NewsAPI',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: MFAppTheme.lightTheme,
