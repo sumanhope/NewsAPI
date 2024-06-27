@@ -17,6 +17,10 @@ dependencies:
   intl: ^0.19.0
   keyboard_dismisser: ^3.0.0
   connectivity_plus: ^5.0.2
+  http: ^1.1.0
+  url_launcher: ^6.2.4
+  get_storage: ^2.1.1
+  skeletonizer: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -25,6 +29,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
   fonts:
     - family: Poppins
       fonts:
