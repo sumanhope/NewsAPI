@@ -16,9 +16,9 @@ NewsAPI is a Flutter application that provides users with the latest news and al
 - **Onboarding Screen**: When opening the app for the first time, the user is greeted with a welcome message and an elevated button labeled "CONTINUE."
 - **Navigation to Home Screen**: Clicking the "CONTINUE" button navigates the user to the Home Screen.
 - **Home Screen**:
-  - **Top News Carousel**: The top three BBC news articles can be slid horizontally.
+  - **Top News Carousel**: The top three BBC news articles can be slide horizontally.
   - **Category Heading**: Clicking on View all will automatically scroll screen to Category Tabs.
-  - **Category Tabs**: Five categories of news are presented in vertically scrollable tabs.
+  - **Category Tabs**: Five categories of news are presented in scrollable tabs.
   - **Theme Switch**: An icon button in the app bar allows users to switch between light and dark themes.
 - **Article Details**:
   - **Navigation**: Clicking on any news container navigates the user to the Article Details page.
