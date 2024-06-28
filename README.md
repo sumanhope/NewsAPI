@@ -2,7 +2,7 @@
 
 **Description**
 
-NewsAPI is a Flutter application that provides users with the latest news and allows them to add articles to their favorites. The app features a sleek user interface with a focus on usability and responsiveness.
+NewsAPI is a Flutter application that provides users with the latest news and allows them to add articles to their favorites. The app features a sleek user interface with a focus on usability and responsiveness. This app uses GetX for State Management and Get Storage(local storage) for database. 
 
 **Features**
 
