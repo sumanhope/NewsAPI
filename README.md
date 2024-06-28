@@ -88,7 +88,7 @@ NewsAPI is a Flutter application that provides users with the latest news and al
 
 - Clone the repository:
   ```bash
-  git clone https://github.com/yourusername/newsapi.git
+  git clone https://github.com/yourusername/NewsAPI.git
   ```
 - Navigate to the project directory:
   ```bash
