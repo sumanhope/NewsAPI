@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 import 'widget_themes/appbar_theme.dart';
-import 'widget_themes/bottom_sheet_theme.dart';
-import 'widget_themes/checkbox_theme.dart';
-import 'widget_themes/chip_theme.dart';
 import 'widget_themes/elevated_button_theme.dart';
 import 'widget_themes/outlined_button_theme.dart';
-import 'widget_themes/text_field_theme.dart';
 import 'widget_themes/text_theme.dart';
 
+// Light and dark theme
 class MFAppTheme {
-  MFAppTheme._();
+  MFAppTheme._(); // to avoid creating instance
 
+  //Light theme of app
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Poppins',
@@ -19,16 +17,13 @@ class MFAppTheme {
     brightness: Brightness.light,
     primaryColor: MFColors.primary,
     textTheme: TTextTheme.lightTextTheme,
-    chipTheme: TChipTheme.lightChipTheme,
     scaffoldBackgroundColor: const Color.fromARGB(255, 231, 231, 231),
     appBarTheme: TAppBarTheme.lightAppBarTheme,
-    checkboxTheme: TCheckboxTheme.lightCheckboxTheme,
-    bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTheme,
-    inputDecorationTheme: MFTextFormFieldTheme.lightInputDecorationTheme,
   );
 
+  //Dark theme of app
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Poppins',
@@ -36,13 +31,9 @@ class MFAppTheme {
     brightness: Brightness.dark,
     primaryColor: MFColors.primary,
     textTheme: TTextTheme.darkTextTheme,
-    chipTheme: TChipTheme.darkChipTheme,
     scaffoldBackgroundColor: MFColors.black,
     appBarTheme: TAppBarTheme.darkAppBarTheme,
-    checkboxTheme: TCheckboxTheme.darkCheckboxTheme,
-    bottomSheetTheme: TBottomSheetTheme.darkBottomSheetTheme,
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.darkOutlinedButtonTheme,
-    inputDecorationTheme: MFTextFormFieldTheme.darkInputDecorationTheme,
   );
 }

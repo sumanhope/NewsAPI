@@ -4,6 +4,7 @@ import '../utils/constants/colors.dart';
 import '../utils/constants/sizes.dart';
 import '../utils/helper/helper_function.dart';
 
+// Widget to display a container for Popular news items
 class PopularNewsContainer extends StatelessWidget {
   const PopularNewsContainer({
     super.key,
@@ -16,38 +17,51 @@ class PopularNewsContainer extends StatelessWidget {
     required this.func,
   });
 
-  final String imagelink, category, author, title, description;
-  final String time;
+  final String imagelink, category, author, title, description, time;
   final VoidCallback func;
 
   @override
   Widget build(BuildContext context) {
+    //Current theme mode
     final dark = MFHelperFunctions.isDarkMode(context);
-    final size = MediaQuery.of(context).size;
+    // Get screen size
+    final size = MFHelperFunctions.screenSize();
     return Padding(
       padding: const EdgeInsets.only(right: 10.0),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
-        onTap: func,
+        onTap: func, // Function to be executed on tap
         child: SizedBox(
           width: size.width * 0.85,
           child: Stack(
             children: [
+              //Image container
               Container(
+                width: size.width,
                 height: size.height * 0.25,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  image: imagelink == ""
-                      ? const DecorationImage(
-                          image: AssetImage("assets/images/defaultnewsimage.jpg"),
-                          fit: BoxFit.cover,
-                        )
-                      : DecorationImage(
-                          image: NetworkImage(imagelink),
-                          fit: BoxFit.fill,
-                        ),
+                ),
+                // Display default image when the news image is loading
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  // default image fade away when the news image is completely loaded
+                  child: FadeInImage(
+                    fadeOutDuration: const Duration(milliseconds: 500),
+                    fadeInDuration: const Duration(milliseconds: 100),
+                    placeholder: const AssetImage("assets/images/defaultnewsimage.jpg"),
+                    // Display the article's image or default image if empty
+                    image: imagelink.isEmpty ? const AssetImage("assets/images/defaultnewsimage.jpg") as ImageProvider : NetworkImage(imagelink),
+                    fit: BoxFit.cover,
+                    placeholderFit: BoxFit.cover,
+                    // Display default image on error
+                    imageErrorBuilder: (context, error, stackTrace) {
+                      return Image.asset("assets/images/defaultnewsimage.jpg", fit: BoxFit.cover);
+                    },
+                  ),
                 ),
               ),
+              //Text Content
               Positioned(
                 bottom: 0,
                 right: 0,
@@ -70,6 +84,7 @@ class PopularNewsContainer extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          // Category text
                           Text(
                             category,
                             style: Theme.of(context).textTheme.bodyLarge,
@@ -77,6 +92,7 @@ class PopularNewsContainer extends StatelessWidget {
                           const SizedBox(
                             width: MFSizes.sm,
                           ),
+                          // Author text
                           Text(
                             author,
                             style: Theme.of(context).textTheme.bodyMedium,
@@ -86,6 +102,7 @@ class PopularNewsContainer extends StatelessWidget {
                       const SizedBox(
                         height: MFSizes.sm,
                       ),
+                      // Title text
                       Text(
                         title,
                         maxLines: 2,
@@ -95,6 +112,7 @@ class PopularNewsContainer extends StatelessWidget {
                       const SizedBox(
                         height: MFSizes.sm,
                       ),
+                      // Description text
                       Text(
                         description,
                         maxLines: 3,
@@ -105,6 +123,7 @@ class PopularNewsContainer extends StatelessWidget {
                       const SizedBox(
                         height: MFSizes.xs,
                       ),
+                      // Published date
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [

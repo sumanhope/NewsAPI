@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../constants/colors.dart';
 import '../helper/helper_function.dart';
 
 class MFLoader {
+  // Method to hide the current SnackBar
   static hideSnackBar() => ScaffoldMessenger.of(Get.overlayContext!).hideCurrentMaterialBanner();
 
+  // Method to show a custom toast message
   static currentToast({required message}) {
     ScaffoldMessenger.of(Get.overlayContext!).showSnackBar(
       SnackBar(
@@ -18,16 +19,18 @@ class MFLoader {
             color: MFHelperFunctions.isDarkMode(Get.context!) ? MFColors.darkerGrey.withOpacity(0.9) : MFColors.grey.withOpacity(0.9),
           ),
           child: Center(
-              child: Text(
-            message,
-            style: Theme.of(Get.context!).textTheme.labelLarge,
-          )),
+            child: Text(
+              message,
+              style: Theme.of(Get.context!).textTheme.labelLarge,
+            ),
+          ),
         ),
       ),
     );
   }
 
-  static sucessSnackBar({required title, message = '', duration = 3}) {
+  // Method to show a success SnackBar
+  static successSnackBar({required title, message = '', duration = 3}) {
     Get.snackbar(
       title,
       message,
@@ -46,6 +49,7 @@ class MFLoader {
     );
   }
 
+  // Method to show a warning SnackBar
   static warningSnackBar({required title, message = '', duration = 3}) {
     Get.snackbar(
       title,
@@ -65,6 +69,7 @@ class MFLoader {
     );
   }
 
+  // Method to show an error SnackBar
   static errorSnackBar({required title, message = ''}) {
     Get.snackbar(
       title,
