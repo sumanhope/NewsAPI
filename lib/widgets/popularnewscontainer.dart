@@ -25,7 +25,7 @@ class PopularNewsContainer extends StatelessWidget {
     //Current theme mode
     final dark = MFHelperFunctions.isDarkMode(context);
     // Get screen size
-    final size = MFHelperFunctions.screenSize();
+    final size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(right: 10.0),
       child: InkWell(

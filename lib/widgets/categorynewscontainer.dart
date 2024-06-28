@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newsapi/utils/helper/helper_function.dart';
 import '../utils/constants/sizes.dart';
 
 // Widget to display a container for category news items
@@ -20,7 +19,7 @@ class CategoryNewsContianer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get the screen size
-    final size = MFHelperFunctions.screenSize();
+    final size = MediaQuery.of(context).size;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 15.0),

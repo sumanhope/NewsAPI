@@ -54,7 +54,7 @@ class BBCPopularNewsAPI extends StatelessWidget {
                   imagelink: "",
                   category: "Popular",
                   author: "Loading",
-                  title: snapshot.error.toString(),
+                  title: "This is test title",
                   description: "This is the loading description. This is the loading description. This is the loading description.",
                   func: () {},
                   time: DateFormat('MMMM d yyyy').format(DateTime.now()),
@@ -63,8 +63,28 @@ class BBCPopularNewsAPI extends StatelessWidget {
             ),
           );
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          // Display message when no articles are found
-          return const Center(child: Text('No articles found'));
+          // Display skeleton when no articles are found
+          return Skeletonizer(
+            enabled: true,
+            effect: const ShimmerEffect(
+              baseColor: MFColors.darkerGrey,
+            ),
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return PopularNewsContainer(
+                  imagelink: "",
+                  category: "Popular",
+                  author: "Loading",
+                  title: "This is test title",
+                  description: "This is the loading description. This is the loading description. This is the loading description.",
+                  func: () {},
+                  time: DateFormat('MMMM d yyyy').format(DateTime.now()),
+                );
+              },
+            ),
+          );
         } else {
           // Display list of popular news articles
           final articles = snapshot.data!.where((article) => article.isValid()).take(3).toList(); // only taking 3 article

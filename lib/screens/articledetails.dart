@@ -25,7 +25,7 @@ class ArticleDetailsScreen extends StatelessWidget {
     final dark = MFHelperFunctions.isDarkMode(context);
 
     // Gets the screen size
-    final size = MFHelperFunctions.screenSize();
+    final size = MediaQuery.of(context).size;
 
     // Instance of FavoriteController for managing favorites
     final favcontroller = Get.put(FavoriteController());
@@ -172,7 +172,10 @@ class ArticleDetailsScreen extends StatelessWidget {
                   },
                   child: Text(
                     "CONTINUE READING",
-                    style: Theme.of(context).textTheme.titleMedium!.apply(letterSpacingFactor: 3),
+                    style: Theme.of(context).textTheme.titleMedium!.apply(
+                          letterSpacingFactor: 3,
+                          color: Colors.white,
+                        ),
                   ),
                 ),
               )

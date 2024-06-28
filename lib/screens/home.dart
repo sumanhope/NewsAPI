@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
     final dark = MFHelperFunctions.isDarkMode(context);
 
     //Get screen size
-    final size = MFHelperFunctions.screenSize();
+    final size = MediaQuery.of(context).size;
 
     // Instance of scroll controller
     final ScrollController scrollController = ScrollController();

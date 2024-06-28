@@ -16,7 +16,7 @@ class BoardingScreen extends StatelessWidget {
     // Determine if the current theme is dark or light
     final dark = MFHelperFunctions.isDarkMode(context);
     // Get the screen size
-    final size = MFHelperFunctions.screenSize();
+    final size = MediaQuery.of(context).size;
     // Instance of ThemeController
     final themeCont = Get.put(ThemeController());
     return Scaffold(

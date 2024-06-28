@@ -67,8 +67,26 @@ class CategoryNewsAPI extends StatelessWidget {
             ),
           );
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          // Display message when no articles are found
-          return const Center(child: Text('No articles found'));
+          // Display Skeleton when no articles are found
+          return Skeletonizer(
+            effect: const ShimmerEffect(
+              baseColor: MFColors.darkerGrey,
+            ),
+            enabled: true,
+            child: ListView.builder(
+              itemCount: 8,
+              itemBuilder: (context, index) {
+                return CategoryNewsContianer(
+                  imagelink: "",
+                  category: category,
+                  author: "Test Name",
+                  title: "This is a Loading Title",
+                  description: "This is a loading description. This is a loading description. This is a loading description.",
+                  func: () {},
+                );
+              },
+            ),
+          );
         } else {
           // Display list of category-specific news articles
           final articles = snapshot.data!.where((article) => article.isValid()).toList(); // checking if any element of article is null then converting it to list
